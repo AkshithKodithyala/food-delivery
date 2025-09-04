@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Food Delivery Service</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: #ff5722;
+    }
+    header {
+      background: #ff5722;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 1.8rem;
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff3e0;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .featured {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .food-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 280px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .food-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .food-card-content {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .food-card h3 {
+      margin-bottom: 0.5rem;
+    }
+    .food-card p {
+      flex-grow: 1;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .food-card button {
+      background: #ff5722;
+      border: none;
+      color: white;
+      padding: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .food-card button:hover {
+      background: #e64a19;
+    }
+    /* Booking form styles */
+    #booking {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #booking h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #ff5722;
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="tel"],
+    form input[type="datetime-local"],
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    form button {
+      background: #ff5722;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      width: 100%;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background: #e64a19;
+    }
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 3rem;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .featured {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+      nav a {
+        margin: 0 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>QuickEats Food Delivery</h1>
+    <nav>
+      <a href="#featured">Featured</a>
+      <a href="#booking">Book Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="featured">
+      <h2>Featured Dishes</h2>
+      <div class="featured">
+        <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=400&q=80" alt="Pizza Margherita" />
+          <div class="food-card-content">
+            <h3>Pizza Margherita</h3>
+            <p>Classic Italian pizza with fresh tomatoes, mozzarella, and basil.</p>
+            <button data-name="Pizza Margherita" data-price="12.99">Add to Order - $12.99</button>
+          </div>
+        </div>
+        <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="Sushi Platter" />
+          <div class="food-card-content">
+            <h3>Sushi Platter</h3>
+            <p>Assorted fresh sushi with salmon, tuna, and avocado.</p>
+            <button data-name="Sushi Platter" data-price="18.50">Add to Order - $18.50</button>
+          </div>
+        </div>
+        <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Burger Deluxe" />
+          <div class="food-card-content">
+            <h3>Burger Deluxe</h3>
+            <p>Juicy beef burger with cheddar cheese, lettuce, and tomato.</p>
+            <button data-name="Burger Deluxe" data-price="10.75">Add to Order - $10.75</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <h2>Book Your Order</h2>
+      <form id="bookingForm">
+        <label for="foodItem">Select Food Item</label>
+        <select id="foodItem" name="foodItem" required>
+          <option value="" disabled selected>Select a dish</option>
+          <option value="Pizza Margherita" data-price="12.99">Pizza Margherita - $12.99</option>
+          <option value="Sushi Platter" data-price="18.50">Sushi Platter - $18.50</option>
+          <option value="Burger Deluxe" data-price="10.75">Burger Deluxe - $10.75</option>
+        </select>
+
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" required />
+
+        <label for="address">Delivery Address</label>
+        <textarea id="address" name="address" rows="3" placeholder="Enter your delivery address" required></textarea>
+
+        <label for="deliveryTime">Delivery Time</label>
+        <input type="datetime-local" id="deliveryTime" name="deliveryTime" required />
+
+        <label for="contactNumber">Contact Number</label>
+        <input type="tel" id="contactNumber" name="contactNumber" placeholder="e.g. +1234567890" required />
+
+        <button type="submit">Book Now</button>
+      </form>
+      <div id="confirmation" style="margin-top:1rem; color: green; font-weight: bold; display:none;"></div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <p>Contact us: support@quickeats.com | Phone: +1 234 567 890</p>
+    <p>&copy; 2024 QuickEats Food Delivery</p>
+  </footer>
+
+  <script>
+    const bookingForm = document.getElementById('bookingForm');
+    const confirmation = document.getElementById('confirmation');
+
+    bookingForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const foodItem = bookingForm.foodItem.value;
+      const quantity = parseInt(bookingForm.quantity.value);
+      const address = bookingForm.address.value.trim();
+      const deliveryTime = bookingForm.deliveryTime.value;
+      const contactNumber = bookingForm.contactNumber.value.trim();
+
+      if (!foodItem || quantity < 1 || !address || !deliveryTime || !contactNumber) {
+        alert('Please fill in all fields correctly.');
+        return;
+      }
+
+      // Simple confirmation message
+      confirmation.style.display = 'block';
+      confirmation.textContent = `Thank you! Your order for ${quantity} x ${foodItem} will be delivered to "${address}" at ${new Date(deliveryTime).toLocaleString()}. We will contact you at ${contactNumber}.`;
+
+      // Reset form
+      bookingForm.reset();
+    });
+
+    // Add to order buttons functionality
+    document.querySelectorAll('.food-card button').forEach(button => {
+      button.addEventListener('click', () => {
+        const foodName = button.getAttribute('data-name');
+        const foodPrice = button.getAttribute('data-price');
+        const select = document.getElementById('foodItem');
+        for (let option of select.options) {
+          if (option.value === foodName) {
+            select.value = foodName;
+            break;
+          }
+        }
+        document.getElementById('quantity').value = 1;
+        window.location.hash = '#booking';
+      });
+    });
+  </script>
+</body>
+</html>
